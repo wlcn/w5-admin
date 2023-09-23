@@ -7,11 +7,12 @@ import org.springframework.stereotype.Repository;
 import org.wlcn.w5.admin.server.domain.user.UserModel;
 import org.wlcn.w5.admin.server.domain.user.UserRepository;
 import org.wlcn.w5.admin.server.infrastructure.user.mapper.UserMapper;
+import org.wlcn.w5.admin.server.util.W5Util;
 
 @Repository
 @RequiredArgsConstructor
 @Slf4j
-@UseDataSource("w5-ds1")
+@UseDataSource(W5Util.DATASOURCE_KEY_1)
 public class UserRepositoryImpl implements UserRepository {
 
     private final UserMapper userMapper;

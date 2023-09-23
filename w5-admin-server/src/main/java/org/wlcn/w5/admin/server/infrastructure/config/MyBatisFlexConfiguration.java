@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.wlcn.w5.admin.server.util.W5Util;
 
 @Configuration
 @MapperScan("org.wlcn.w5.admin.server.infrastructure.*.mapper")
@@ -36,7 +37,7 @@ public class MyBatisFlexConfiguration implements CommandLineRunner {
         //设置 SQL 审计收集器
         AuditManager.setMessageCollector(
                 auditMessage ->
-                        log.info("{},{} ms", auditMessage.getFullSql(), auditMessage.getElapsedTime())
+                        log.info("\nSQL: {}\nRunning time: {} ms", auditMessage.getFullSql(), auditMessage.getElapsedTime())
         );
     }
 
@@ -44,7 +45,7 @@ public class MyBatisFlexConfiguration implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Db.tx(() -> {
             try {
-                DataSourceKey.use("w5-ds1");
+                DataSourceKey.use(W5Util.DataSourceEnum.DATASOURCE_1.getKey());
                 Db.updateBySql(INIT_SQL);
             } catch (Exception e) {
                 log.error("INIT sql error.", e);
