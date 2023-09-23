@@ -37,7 +37,7 @@ public class MyBatisFlexConfiguration implements CommandLineRunner {
         //设置 SQL 审计收集器
         AuditManager.setMessageCollector(
                 auditMessage ->
-                        log.info("\nSQL: {}\nRunning time: {} ms", auditMessage.getFullSql(), auditMessage.getElapsedTime())
+                        log.info("\nExecute SQL: \n{}\nRunning time: {} ms", auditMessage.getFullSql(), auditMessage.getElapsedTime())
         );
     }
 
