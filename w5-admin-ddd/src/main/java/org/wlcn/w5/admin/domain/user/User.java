@@ -3,6 +3,8 @@ package org.wlcn.w5.admin.domain.user;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 public class User {
@@ -19,7 +21,7 @@ public class User {
 
         private String name;
         private Integer age;
-        private String sex;
+        private LocalDateTime birthday;
 
     }
 

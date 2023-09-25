@@ -13,23 +13,23 @@ public class UserDomainService {
 
     private final UserRepository userRepository;
 
-    User save(User user) {
+    public User save(User user) {
         return userRepository.save(user);
     }
 
-    User update(User user) {
+    public User update(User user) {
         return userRepository.update(user);
     }
 
-    Integer delete(User user) {
+    public Integer delete(User user) {
         return userRepository.delete(user);
     }
 
-    User findById(Serializable id) {
+    public User findById(Serializable id) {
         return userRepository.findById(id);
     }
 
-    User deleteById(Serializable id) {
+    public User deleteById(Serializable id) {
         return userRepository.deleteById(id);
     }
 }
