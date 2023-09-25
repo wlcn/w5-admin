@@ -20,6 +20,22 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	runtimeOnly 'com.h2database:h2'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    implementation 'com.mybatis-flex:mybatis-flex-spring-boot-starter:1.5.7'
+    implementation 'com.zaxxer:HikariCP'
+
+    // tool
+    implementation 'com.alibaba.fastjson2:fastjson2:2.0.40'
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    implementation 'com.alibaba:easyexcel:3.3.2'
+    implementation 'cn.hutool:hutool-all:5.8.22'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 }
