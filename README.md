@@ -1,6 +1,6 @@
 # w5-admin
 
-wang5 admin project
+wang5 admin project demo, DDD practice
 
 ## Language
 
