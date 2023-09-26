@@ -8,3 +8,8 @@ mybatis-flex:
       url: jdbc:h2:file:E:/wl/db/w5-ds2-test
       username:
       password:
+
+w5:
+  admin:
+    name: w5-test
+    password: pwd-test
