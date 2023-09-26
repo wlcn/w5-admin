@@ -24,7 +24,7 @@ public class DomainInit {
     public void init() {
         log.info("{} is ready.", name);
         final var response = webClient.get()
-                .uri("https://cn.bing.com/")
+                .uri("http://localhost:8080/api/v1/user/1")
                 .retrieve()
                 .bodyToMono(JSONObject.class);
 
