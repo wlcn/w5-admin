@@ -17,6 +17,8 @@ public class User {
 
     private Profile profile;
 
+    @Data
+    @Builder
     public static class Profile {
 
         private String name;
