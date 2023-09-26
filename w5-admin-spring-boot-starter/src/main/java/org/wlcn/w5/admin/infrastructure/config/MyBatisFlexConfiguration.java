@@ -15,7 +15,11 @@ public class MyBatisFlexConfiguration {
 
         AuditManager.setMessageCollector(
                 auditMessage ->
-                        log.info("\nExecute SQL: \n{}\nRunning time: {} ms", auditMessage.getFullSql(), auditMessage.getElapsedTime())
+                        log.info(
+                                "\nExecute SQL: \n{}\nRunning time: {} ms",
+                                auditMessage.getFullSql(),
+                                auditMessage.getElapsedTime()
+                        )
         );
     }
 

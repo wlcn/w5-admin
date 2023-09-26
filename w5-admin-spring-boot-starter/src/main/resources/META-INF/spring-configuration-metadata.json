@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "name": "w5",
+      "type": "org.wlcn.w5.admin.infrastructure.config.W5Properties",
+      "sourceType": "org.wlcn.w5.admin.infrastructure.config.W5Properties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "w5.admin.name",
+      "type": "java.lang.String",
+      "description": "w5 name property.",
+      "sourceType": "org.wlcn.w5.admin.infrastructure.config.W5Properties"
+    },
+    {
+      "name": "w5.admin.password",
+      "type": "java.lang.String",
+      "description": "w5 password property.",
+      "sourceType": "org.wlcn.w5.admin.infrastructure.config.W5Properties"
+    }
+  ],
+  "hints": [
+    {
+      "name": "w5.admin.name",
+      "values": [
+        {
+          "value": "none",
+          "description": "Disable w5.admin.name property handling."
+        }
+      ]
+    }
+  ]
+}
