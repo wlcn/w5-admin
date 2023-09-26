@@ -1,4 +1,4 @@
-package org.wlcn.w5.admin.util.vo;
+package org.wlcn.w5.admin.vo;
 
 import lombok.Builder;
 import lombok.Data;

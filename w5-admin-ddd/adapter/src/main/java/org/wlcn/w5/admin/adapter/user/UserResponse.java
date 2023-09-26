@@ -2,7 +2,7 @@ package org.wlcn.w5.admin.adapter.user;
 
 import lombok.Builder;
 import lombok.Data;
-import org.wlcn.w5.admin.util.vo.Profile;
+import org.wlcn.w5.admin.vo.Profile;
 
 @Data
 @Builder
