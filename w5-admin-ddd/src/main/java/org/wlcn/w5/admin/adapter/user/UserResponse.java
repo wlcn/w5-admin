@@ -1,10 +1,15 @@
 package org.wlcn.w5.admin.adapter.user;
 
+import lombok.Builder;
+import lombok.Data;
 import org.wlcn.w5.admin.domain.user.User;
 
 import java.time.LocalDateTime;
 
+@Data
+@Builder
 public class UserResponse {
+
     private String id;
 
     private String phone;

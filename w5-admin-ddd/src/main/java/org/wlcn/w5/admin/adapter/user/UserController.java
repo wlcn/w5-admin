@@ -19,7 +19,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/{id}")
-    Mono<ResponseEntity<UserResponse>> findById(@PathVariable String id) {
+    Mono<ResponseEntity<UserResponse>> findById(@PathVariable Integer id) {
         final var userInfo = userService.findById(id);
         log.info("user find by id {}", id);
         final var userResponse = UserConvertMapper.INSTANCE.userInfoToUserResponse(userInfo);

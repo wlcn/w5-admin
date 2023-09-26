@@ -1,5 +1,6 @@
 package org.wlcn.w5.admin.infrastructure.config;
 
+import cn.hutool.core.io.FileUtil;
 import com.mybatisflex.core.audit.AuditManager;
 import com.mybatisflex.core.datasource.DataSourceKey;
 import com.mybatisflex.core.row.Db;
@@ -9,26 +10,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.wlcn.w5.admin.util.W5Util;
 
+import java.nio.charset.Charset;
+
 @Configuration
 @MapperScan("org.wlcn.w5.admin.infrastructure.*.mapper")
 @Slf4j
 public class MyBatisFlexConfiguration implements CommandLineRunner {
-
-    private static final String INIT_SQL = """
-            DROP TABLE `t_w5_user` if exists;
-            CREATE TABLE IF NOT EXISTS `t_w5_user`
-            (
-                `id`        INTEGER PRIMARY KEY auto_increment,
-                `name`      VARCHAR(100),
-                `age`       INTEGER,
-                `birthday`  DATETIME
-            );
-                        
-            INSERT INTO t_w5_user(id, name, age, birthday)
-            VALUES (1, '张三', 18, '2020-01-11'),
-                   (2, '李四', 19, '2021-03-21');
-            """;
-
 
     public MyBatisFlexConfiguration() {
         //开启审计功能
@@ -45,8 +32,11 @@ public class MyBatisFlexConfiguration implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Db.tx(() -> {
             try {
+                final var dmlSql = FileUtil.readString("db/h2-schema.sql", Charset.defaultCharset());
+                final var ddlSql = FileUtil.readString("db/h2-data.sql", Charset.defaultCharset());
                 DataSourceKey.use(W5Util.DataSourceEnum.DATASOURCE_1.getKey());
-                Db.updateBySql(INIT_SQL);
+                Db.updateBySql(dmlSql);
+                Db.updateBySql(ddlSql);
             } catch (Exception e) {
                 log.error("INIT sql error.", e);
             } finally {
