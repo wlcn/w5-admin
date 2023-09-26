@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wlcn.w5.admin.infrastructure.config.MyBatisFlexConfiguration

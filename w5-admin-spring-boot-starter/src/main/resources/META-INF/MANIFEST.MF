@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: w5-admin-spring.boot.starter
+Build-Jdk-Spec: 21
+Built-By: w5-admin
+Implementation-Title: Starter for building w5-admin applications using Sp
+ ring Framework's Reactive Web support
+Implementation-Version: 1.0.0
+Spring-Boot-Jar-Type: dependencies-starter
+

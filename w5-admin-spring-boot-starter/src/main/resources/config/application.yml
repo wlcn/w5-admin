@@ -1,0 +1,7 @@
+infrastructure:
+  name: infrastructure-local
+
+w5:
+  admin:
+    name: w5
+    password: pwd
