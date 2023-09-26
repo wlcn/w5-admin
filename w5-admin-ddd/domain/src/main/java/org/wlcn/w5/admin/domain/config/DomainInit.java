@@ -17,20 +17,9 @@ public class DomainInit {
     @Value("${domain.name}")
     private String name;
 
-    @Autowired
-    private WebClient webClient;
-
     @PostConstruct
     public void init() {
         log.info("{} is ready.", name);
-        final var response = webClient.get()
-                .uri("http://localhost:8080/api/v1/user/1")
-                .retrieve()
-                .bodyToMono(JSONObject.class);
-
-        response.subscribe(body ->
-                log.info("response body is {}", body)
-        );
     }
 
 }
