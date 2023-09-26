@@ -4,6 +4,8 @@ import lombok.Getter;
 
 public class W5Util {
 
+    public static final String LINE_NEXT = "\n";
+
     public static final String DATASOURCE_KEY_1 = "w5-ds1";
     public static final String DATASOURCE_KEY_2 = "w5-ds2";
 
