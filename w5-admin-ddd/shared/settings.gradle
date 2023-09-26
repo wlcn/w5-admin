@@ -5,6 +5,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'w5-admin-ddd'
-
-include 'adapter', 'application', 'domain', 'infrastructure', 'shared', 'starter'
+rootProject.name = 'shared'
