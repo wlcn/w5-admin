@@ -5,7 +5,8 @@ starter for w5 admin
 ## abilities
 
 1. mybatis-flex
-2. w5 configuration properties
+2. WebClient configuration
+3. w5 configuration properties
 
 ## usage
 
