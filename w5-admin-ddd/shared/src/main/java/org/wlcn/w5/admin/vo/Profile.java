@@ -1,7 +1,8 @@
 package org.wlcn.w5.admin.vo;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.extern.jackson.Jacksonized;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +10,8 @@ import java.time.LocalDateTime;
  * profile vo
  */
 @Data
-@NoArgsConstructor
+@Builder
+@Jacksonized
 public class Profile {
 
     private String name;

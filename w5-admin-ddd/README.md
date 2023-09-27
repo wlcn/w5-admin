@@ -11,7 +11,7 @@ DDD practice project. multiple modules by gradle
 - GET by id
 
 ```shell
-$ curl http://localhost:8080/api/v1/user/1
+curl --location 'http://localhost:8080/api/v1/user/1'
 ```
 
 ```json
@@ -30,7 +30,7 @@ $ curl http://localhost:8080/api/v1/user/1
 - DELETE by id
 
 ```shell
-$ curl -X DELETE http://localhost:8080/api/v1/user/1
+curl --location --request DELETE 'http://localhost:8080/api/v1/user/1'
 ```
 
 ```json
@@ -49,7 +49,17 @@ $ curl -X DELETE http://localhost:8080/api/v1/user/1
 - POST save
 
 ```shell
-$ curl -H "Content-Type:application/json" -X POST -d '{"phone":"123","password":"123","profile":{"name":"张三","age":18,"birthday":"2020-01-11T00:00:00"}}' http://localhost:8080/api/v1/user
+curl --location 'http://localhost:8080/api/v1/user' \
+--header 'Content-Type: application/json' \
+--data '{
+    "phone": "123",
+    "password": "123",
+    "profile": {
+        "name": "张三",
+        "age": 18,
+        "birthday": "2020-01-11T00:00:00"
+    }
+}'
 ```
 
 ```json
@@ -68,7 +78,18 @@ $ curl -H "Content-Type:application/json" -X POST -d '{"phone":"123","password":
 - PUT update
 
 ```shell
-$ curl -H "Content-Type:application/json" -X POST -d '{"id":"1","phone":"123-u","password":"123","profile":{"name":"张三","age":18,"birthday":"2020-01-11T00:00:00"}}' http://localhost:8080/api/v1/user
+curl --location --request PUT 'http://localhost:8080/api/v1/user' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "1",
+    "phone": "123-u",
+    "password": "123",
+    "profile": {
+        "name": "张三",
+        "age": 18,
+        "birthday": "2020-01-11T00:00:00"
+    }
+}'
 ```
 
 ```json
@@ -84,40 +105,41 @@ $ curl -H "Content-Type:application/json" -X POST -d '{"id":"1","phone":"123-u",
 }
 ```
 
-- DELETE delete list
-
-```shell
-$ curl -H "Content-Type:application/json" -X DELETE -d '{"id":"1","phone":"123-u","password":"123","profile":{"name":"张三","age":18,"birthday":"2020-01-11T00:00:00"}}' http://localhost:8080/api/v1/user
-```
-
-```json
-{
-  "id": "1",
-  "phone": "123",
-  "password": "123",
-  "profile": {
-    "name": "张三",
-    "age": 18,
-    "birthday": "2020-01-11T00:00:00"
-  }
-}
-```
-
 - GET find list
 
 ```shell
-$ curl -H "Content-Type:application/json" -X POST -d '{"id":"1","phone":"123-u","password":"123","profile":{"name":"张三","age":18,"birthday":"2020-01-11T00:00:00"}}' http://localhost:8080/api/v1/user
+curl --location 'http://localhost:8080/api/v1/user/find' \
+--header 'Content-Type: application/json' \
+--data '{
+    "phone": "123",
+    "profile": {
+        "name": "张三",
+        "age": 18
+    }
+}'
 ```
 
 ```json
-{
-  "id": "1",
-  "phone": "123",
-  "password": "123",
-  "profile": {
-    "name": "张三",
-    "age": 18,
-    "birthday": "2020-01-11T00:00:00"
+[
+  {
+    "id": "1",
+    "phone": "123",
+    "password": "123",
+    "profile": {
+      "name": "张三",
+      "age": 18,
+      "birthday": "2020-01-11T00:00:00"
+    }
+  },
+  {
+    "id": "8",
+    "phone": "123",
+    "password": "123",
+    "profile": {
+      "name": "张三",
+      "age": 18,
+      "birthday": "2020-01-11T00:00:00"
+    }
   }
-}
+]
 ```
