@@ -1,7 +1,19 @@
 infrastructure:
-  name: infrastructure-local
+  name: infrastructure-starter
 
 w5:
   admin:
     name: w5
     password: pwd
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+  file:
+    path: /tmp/logs/w5
+  logback:
+    rollingpolicy:
+      max-history: 30
