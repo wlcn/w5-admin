@@ -24,7 +24,7 @@ public class UserRepositoryImpl implements UserRepository {
         final var userDo = UserDoConvertMapper.INSTANCE.userToUserDo(user);
         final var effectCounts = userDoMapper.insert(userDo);
         log.info("save user, effect counts {}", effectCounts);
-        return findById(user.getId());
+        return findById(userDo.getId());
     }
 
     @Override
@@ -34,7 +34,7 @@ public class UserRepositoryImpl implements UserRepository {
         final var userDo = UserDoConvertMapper.INSTANCE.userToUserDo(user);
         final var effectCounts = userDoMapper.update(userDo);
         log.info("update user, effect counts {}", effectCounts);
-        return findById(user.getId());
+        return findById(userDo.getId());
     }
 
     @Override
