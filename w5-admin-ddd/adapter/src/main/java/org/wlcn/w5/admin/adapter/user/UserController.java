@@ -1,7 +1,9 @@
 package org.wlcn.w5.admin.adapter.user;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.wlcn.w5.admin.application.user.UserService;
 import reactor.core.publisher.Mono;
@@ -26,6 +29,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     Mono<ResponseEntity<UserResponse>> save(@RequestBody @Validated(UserCommandRequest.SaveGroup.class) UserCommandRequest userCommandRequest) {
         final var userInfo = UserConvertMapper.INSTANCE.userCommandRequestToUserInfo(userCommandRequest);
         final var saved = userService.save(userInfo);
@@ -58,8 +62,8 @@ public class UserController {
     }
 
     @PostMapping("/find")
-    Mono<ResponseEntity<List<UserResponse>>> find(@RequestBody UserQueryRequest userCommandRequest) {
-        final var userInfo = UserConvertMapper.INSTANCE.userQueryRequestToUserInfo(userCommandRequest);
+    Mono<ResponseEntity<List<UserResponse>>> find(@RequestBody @Valid UserQueryRequest userQueryRequest) {
+        final var userInfo = UserConvertMapper.INSTANCE.userQueryRequestToUserInfo(userQueryRequest);
         final var foundList = userService.find(userInfo);
         final var userResponseList = UserConvertMapper.INSTANCE.userInfoListToUserResponseList(foundList);
         return Mono.justOrEmpty(ResponseEntity.ok(userResponseList));

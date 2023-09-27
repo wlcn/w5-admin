@@ -41,7 +41,7 @@ public class UserService {
 
     public UserInfo findById(Serializable id) {
         final var user = userDomainService.findById(id);
-        log.info("user find by id {}", id);
+        log.info("find by id {}", id);
         return UserInfoConvertMapper.INSTANCE.userToUserInfo(user);
     }
 
