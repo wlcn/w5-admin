@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -25,11 +26,17 @@ public class UserDomainService {
         return userRepository.delete(user);
     }
 
+    public User deleteById(Serializable id) {
+        return userRepository.deleteById(id);
+    }
+
     public User findById(Serializable id) {
         return userRepository.findById(id);
     }
 
-    public User deleteById(Serializable id) {
-        return userRepository.deleteById(id);
+    public List<User> find(User user) {
+        return userRepository.find(user);
     }
+
+
 }

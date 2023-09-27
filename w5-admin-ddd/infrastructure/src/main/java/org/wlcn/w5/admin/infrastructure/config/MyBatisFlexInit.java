@@ -27,7 +27,7 @@ public class MyBatisFlexInit {
                 DataSourceKey.use(W5Util.DataSourceEnum.DATASOURCE_1.getKey());
                 Db.updateBySql(dmlSql);
                 Db.updateBySql(ddlSql);
-                log.info("INIT SQL at local done");
+                log.info("INIT SQL at local done.");
             } catch (Exception e) {
                 log.error("INIT sql error.", e);
             } finally {
